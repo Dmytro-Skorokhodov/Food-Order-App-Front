@@ -6,7 +6,7 @@ let x = [];
   
 
 for (const path in components) {
-  const component = await components[path]();
+  const component = components[path]();
   x.push(component);
   console.log(component.default);
 }

@@ -3,7 +3,10 @@ import Meal from "./Meal";
 import { CartContext } from "../store/shop-cart-context";
 
 
+
+
 export default function Meals() {
+ 
   const [meals, setMeals] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [fetchError, setFetchError] = useState({ state: false, message: "" });
@@ -34,7 +37,7 @@ export default function Meals() {
     fetchMeals();
   }, []);
 
-
+  
 
   return (
     <section id="meals">
@@ -48,7 +51,7 @@ export default function Meals() {
             key={meal.id}
             name={meal.name}
             price={meal.price}
-            image={meal.image}
+            image={`../../assets/${meal.image}`}
             description={meal.description}
             onAddToCart={() => addMealToCart(meal)}
           />

@@ -14,23 +14,14 @@ export default function Meals() {
       try {
         const response = await fetch(
           "https://food-order-app-backend-gamma.vercel.app/meals"
-          // {
-          //   mode: "no-cors",
-          //   method: "get",
-          //   headers: {
-          //     "Content-Type": "application/json",
-              
-          //   },
-          // }
         );
-        console.log(response);
+
         const resData = await response.json();
-        console.log(resData);
 
         if (!response.ok) {
           throw new Error("Failed to fetch meals.");
         }
-        
+
         setMeals(resData);
       } catch (err) {
         setFetchError({ state: true, message: err.message });
@@ -41,6 +32,8 @@ export default function Meals() {
 
     fetchMeals();
   }, []);
+
+  console.log(meals[1].image);
 
   return (
     <section id="meals">

@@ -1,7 +1,9 @@
+import url from "../../assets";
+
 export default function Meal({ name, price, description, image, onAddToCart }) {
   return (
     <article className="meal-item">
-      <img src={image} alt="food" />
+      <img src={`${url}/${image}`} alt="food" />
       <h3>{name}</h3>
       <div className="meal-item-price">${price}</div>
       <p className="meal-item-description">{description}</p>

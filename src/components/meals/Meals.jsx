@@ -43,17 +43,17 @@ export default function Meals() {
       ) : fetchError.state ? (
         <p>{fetchError.message}</p>
       ) : (
-        meals.map((meal, iter) => (
+        meals.map((meal) => (
           <Meal
             key={meal.id}
             name={meal.name}
             price={meal.price}
-            image={`../../assets/${meals[iter].image}`}
+            image={meal.image}
             description={meal.description}
             onAddToCart={() => addMealToCart(meal)}
           />
         ))
-        
+
       )}
       {}
     </section>

@@ -33,7 +33,9 @@ export default function Meals() {
     fetchMeals();
   }, []);
 
-  console.log(meals[1].image);
+  useEffect(() => {
+    console.log(meals[1].image);
+  }, [meals]);
 
   return (
     <section id="meals">

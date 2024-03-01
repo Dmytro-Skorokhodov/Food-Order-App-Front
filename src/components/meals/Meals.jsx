@@ -34,11 +34,7 @@ export default function Meals() {
     fetchMeals();
   }, []);
 
-  useEffect(() => {
-    if (meals.length) {
-      console.log(meals[2].image);
-    }
-  }, []);
+
 
   return (
     <section id="meals">
@@ -47,16 +43,17 @@ export default function Meals() {
       ) : fetchError.state ? (
         <p>{fetchError.message}</p>
       ) : (
-        meals.map((meal) => (
+        meals.map((meal, iter) => (
           <Meal
             key={meal.id}
             name={meal.name}
             price={meal.price}
-            image={`../../assets/${meal.image}`}
+            image={`../../assets/${meals[iter].image}`}
             description={meal.description}
             onAddToCart={() => addMealToCart(meal)}
           />
         ))
+        
       )}
       {}
     </section>

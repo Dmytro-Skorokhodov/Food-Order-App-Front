@@ -34,8 +34,10 @@ export default function Meals() {
   }, []);
 
   useEffect(() => {
-    console.log(meals[1].image);
-  }, [meals]);
+    if (meals.length) {
+      console.log(meals[2].image);
+    }
+  }, []);
 
   return (
     <section id="meals">

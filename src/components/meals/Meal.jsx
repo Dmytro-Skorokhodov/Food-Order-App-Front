@@ -1,4 +1,4 @@
-import url from "../../assets/beef-tacos";
+import url from "../../assets/beef-tacos.jpg";
 
 export default function Meal({ name, price, description, image, onAddToCart }) {
   return (

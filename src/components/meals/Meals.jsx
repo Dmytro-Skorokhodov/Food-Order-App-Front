@@ -1,6 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import Meal from "./Meal";
 import { CartContext } from "../store/shop-cart-context";
+import imagePath from "../../assets";
 
 export default function Meals() {
   const [meals, setMeals] = useState([]);
@@ -51,7 +52,7 @@ export default function Meals() {
             key={meal.id}
             name={meal.name}
             price={meal.price}
-            image={`../../assets/${meal.image}`}
+            image={`${imagePath}/${meal.image}`}
             description={meal.description}
             onAddToCart={() => addMealToCart(meal)}
           />

@@ -1,12 +1,9 @@
 import { useEffect, useState, useContext } from "react";
 import Meal from "./Meal";
+import img from "../../assets/caesar-salad.jpg";
 import { CartContext } from "../store/shop-cart-context";
 
-
-
-
 export default function Meals() {
- 
   const [meals, setMeals] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [fetchError, setFetchError] = useState({ state: false, message: "" });
@@ -37,8 +34,6 @@ export default function Meals() {
     fetchMeals();
   }, []);
 
-  
-
   return (
     <section id="meals">
       {isFetching ? (
@@ -51,12 +46,11 @@ export default function Meals() {
             key={meal.id}
             name={meal.name}
             price={meal.price}
-            image={"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eatingwell.com%2Frecipe%2F268265%2Fmeal-prep-chili-lime-chicken-bowls%2F&psig=AOvVaw2fDji_3L-40Ir6UuEYK-1M&ust=1709456699031000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLDwrsyc1YQDFQAAAAAdAAAAABAE"}
+            image={img}
             description={meal.description}
             onAddToCart={() => addMealToCart(meal)}
           />
         ))
-
       )}
       {}
     </section>

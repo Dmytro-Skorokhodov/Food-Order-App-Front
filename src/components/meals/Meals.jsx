@@ -51,7 +51,7 @@ export default function Meals() {
             key={meal.id}
             name={meal.name}
             price={meal.price}
-            image={`../../assets/${meal.image}`}
+            image={"https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.eatingwell.com%2Frecipe%2F268265%2Fmeal-prep-chili-lime-chicken-bowls%2F&psig=AOvVaw2fDji_3L-40Ir6UuEYK-1M&ust=1709456699031000&source=images&cd=vfe&opi=89978449&ved=0CBIQjRxqFwoTCLDwrsyc1YQDFQAAAAAdAAAAABAE"}
             description={meal.description}
             onAddToCart={() => addMealToCart(meal)}
           />

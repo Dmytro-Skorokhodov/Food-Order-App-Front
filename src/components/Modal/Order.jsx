@@ -25,6 +25,8 @@ export default function Orders({ onCloseModal }) {
 
       setIsFetching(false);
     }
+
+    getOrders();
   }, []);
 
   return (

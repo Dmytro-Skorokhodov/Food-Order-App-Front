@@ -5,6 +5,7 @@ import Modal from "../Modal/Modal";
 import { CartContext } from "../store/shop-cart-context";
 import HeaderTitle from "./HeaderTitle";
 import { useContext, useRef, useState } from "react";
+import Orders from "../Modal/Order";
 
 export default function Header() {
   let modalContent;
@@ -17,6 +18,11 @@ export default function Header() {
 
   function showModalHandler() {
     modal.current.open();
+  }
+
+  function showOrderModalHandler() {
+    modal.current.open();
+    setModalState("Orders");
   }
 
   function closeModalHandler() {
@@ -40,6 +46,8 @@ export default function Header() {
     modalContent = (
       <OrderResponse response={response.current} onCloseModal={closeModalHandler} />
     );
+  } else if (modalState === "Orders") {
+    modalContent = <Orders onCloseModal={closeModalHandler} />;
   } else {
     modalContent = (
       <Cart
@@ -56,7 +64,10 @@ export default function Header() {
       </Modal>
       <header id="main-header">
         <HeaderTitle />
-        <button onClick={showModalHandler}>Cart({total})</button>
+        <div className="main-header__buttons">
+          <button onClick={showOrderModalHandler}>Orders()</button>
+          <button onClick={showModalHandler}>Cart({total})</button>
+        </div>
       </header>
     </>
   );

@@ -39,7 +39,7 @@ export default function Orders({ onCloseModal }) {
         ) : fetchError.state ? (
           <p>{fetchError.message}</p>
         ) : (
-          <p>Nothing fetched.</p>
+          <p>{orders}</p>
         )}
       </ul>
       <div className="cart-total">$</div>

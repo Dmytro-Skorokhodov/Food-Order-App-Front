@@ -30,7 +30,16 @@ export default function Orders({ onCloseModal }) {
   return (
     <div className="cart">
       <h2>Your Orders</h2>
-      <ul>{orders}</ul>
+      <ul>
+        {" "}
+        {isFetching ? (
+          <p>Waiting for fetch products...</p>
+        ) : fetchError.state ? (
+          <p>{fetchError.message}</p>
+        ) : (
+          <p>Nothing fetched.</p>
+        )}
+      </ul>
       <div className="cart-total">$</div>
       <div className="modal-actions">
         <button className="text-button button" onClick={() => onCloseModal()}>

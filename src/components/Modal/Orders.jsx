@@ -10,7 +10,7 @@ export default function Orders({ onCloseModal }) {
       try {
         setIsFetching(true);
         const response = await fetch(
-          "https://food-order-app-backend-smoky.vercel.app/orders"
+          "https://food-order-app-backend-git-b1b21c-dmytro-skorokhodovs-projects.vercel.app/orders"
         );
 
         console.log(response);

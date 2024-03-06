@@ -3,7 +3,7 @@ export async function postOrder(order) {
     "https://food-order-app-backend-git-b1b21c-dmytro-skorokhodovs-projects.vercel.app/orders",
     {
       method: "POST",
-      body: JSON.stringify({ order }),
+      body:  order,
       headers: {
         "Content-Type": "application/json",
         "Access-Control-Allow-Origin": "https://food-order-app-front.vercel.app",

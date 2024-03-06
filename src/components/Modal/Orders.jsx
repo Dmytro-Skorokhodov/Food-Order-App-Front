@@ -1,4 +1,5 @@
 import { useEffect, useState, useContext } from "react";
+import { OrdersContext } from "../store/shop-order-context";
 
 export default function Orders({ onCloseModal }) {
   const { orders } = useContext(OrdersContext);
@@ -45,7 +46,7 @@ export default function Orders({ onCloseModal }) {
         ) : fetchError.state ? (
           <p>{fetchError.message}</p>
         ) : (
-          <p>Succeful</p>
+          <p>Successful</p>
         )}
       </ul>
       <div className="cart-total">$</div>

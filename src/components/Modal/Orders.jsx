@@ -13,9 +13,9 @@ export default function Orders({ onCloseModal }) {
           "https://food-order-app-backend-git-b1b21c-dmytro-skorokhodovs-projects.vercel.app/orders"
         );
 
-        console.log(response);
-
         const resData = await response.json();
+
+        console.log(resData);
 
         if (!response.ok) {
           throw new Error("Cannot get orders");

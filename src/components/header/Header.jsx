@@ -6,6 +6,7 @@ import { CartContext } from "../store/shop-cart-context";
 import HeaderTitle from "./HeaderTitle";
 import { useContext, useRef, useState } from "react";
 import Orders from "../Modal/Orders";
+import OrdersContextProvider from "../store/shop-order-context";
 
 export default function Header() {
   let modalContent;
@@ -58,7 +59,7 @@ export default function Header() {
   }
 
   return (
-    <>
+    <OrdersContextProvider>
       <Modal ref={modal} onCloseCheckout={closeModalHandler}>
         {modalContent}
       </Modal>
@@ -69,6 +70,6 @@ export default function Header() {
           <button onClick={showModalHandler}>Cart({total})</button>
         </div>
       </header>
-    </>
+    </OrdersContextProvider>
   );
 }

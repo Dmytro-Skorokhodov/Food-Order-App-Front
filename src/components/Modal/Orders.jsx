@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { OrdersContext } from "../store/shop-order-context";
 
 export default function Orders({ onCloseModal }) {
-  const { orders } = useContext(OrdersContext);
+  const { orders, setOrders } = useContext(OrdersContext);
 
   const [isFetching, setIsFetching] = useState(false);
   const [fetchError, setFetchError] = useState({ state: false, message: "" });
@@ -17,14 +17,10 @@ export default function Orders({ onCloseModal }) {
 
         const resData = await response.json();
 
-        console.log(resData);
-
         if (!response.ok) {
           throw new Error("Cannot get orders");
         }
-        // setOrders(resData);
-        orders = resData;
-        console.log(orders);
+        setOrders(resData);
         setFetchError({ state: false, message: "" });
       } catch (err) {
         setFetchError({ state: true, message: err.message });
@@ -46,7 +42,7 @@ export default function Orders({ onCloseModal }) {
         ) : fetchError.state ? (
           <p>{fetchError.message}</p>
         ) : (
-          <p>Successful</p>
+          <p>{orders}</p>
         )}
       </ul>
       <div className="cart-total">$</div>

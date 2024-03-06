@@ -5,7 +5,7 @@ import Modal from "../Modal/Modal";
 import { CartContext } from "../store/shop-cart-context";
 import HeaderTitle from "./HeaderTitle";
 import { useContext, useRef, useState } from "react";
-import Orders from "../Modal/OrderS";
+import Orders from "../Modal/Order";
 
 export default function Header() {
   let modalContent;

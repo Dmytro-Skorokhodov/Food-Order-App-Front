@@ -19,6 +19,7 @@ export default function Orders({ onCloseModal }) {
           throw new Error("Cannot get orders");
         }
         setOrders(resData);
+        setFetchError({ state: false, message: "" });
       } catch (err) {
         setFetchError({ state: true, message: err.message });
       }

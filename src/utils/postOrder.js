@@ -3,6 +3,7 @@ export async function postOrder(order) {
     "https://food-order-app-backend-git-b1b21c-dmytro-skorokhodovs-projects.vercel.app/orders",
     {
       method: "POST",
+      mode: "no-cors",
       body: JSON.stringify({ order }),
       headers: {
         "Content-Type": "application/json",

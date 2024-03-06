@@ -13,6 +13,8 @@ export default function Orders({ onCloseModal }) {
           "https://food-order-app-backend-smoky.vercel.app/orders"
         );
 
+        console.log(response);
+
         const resData = await response.json();
 
         if (!response.ok) {

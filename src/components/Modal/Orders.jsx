@@ -1,8 +1,8 @@
 import { useEffect, useState, useContext } from "react";
 
 export default function Orders({ onCloseModal }) {
-  const {orders} = useContext(OrdersContext);
-  
+  const { orders } = useContext(OrdersContext);
+
   const [isFetching, setIsFetching] = useState(false);
   const [fetchError, setFetchError] = useState({ state: false, message: "" });
 
@@ -45,9 +45,7 @@ export default function Orders({ onCloseModal }) {
         ) : fetchError.state ? (
           <p>{fetchError.message}</p>
         ) : (
-          <p>{orders.map((order) => (
-
-          ))}</p>
+          <p>Succeful</p>
         )}
       </ul>
       <div className="cart-total">$</div>

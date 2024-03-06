@@ -1,8 +1,7 @@
 
 export async function postOrder(order) {
-  const response = await fetch("https://food-order-app-backend-smoky.vercel.app/orders", {
+  const response = await fetch("https://food-order-app-backend-git-b1b21c-dmytro-skorokhodovs-projects.vercel.app/orders", {
     method: "POST",
-    mode: "no-cors",
     body: JSON.stringify({ order }),
     headers: {
       "Content-Type": "application/json",

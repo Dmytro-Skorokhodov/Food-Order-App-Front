@@ -38,7 +38,6 @@ export default function Orders({ onCloseModal }) {
     <div className="cart">
       <h2>Your Orders</h2>
       <ul>
-        {" "}
         {isFetching ? (
           <p>Waiting for fetch products...</p>
         ) : fetchError.state ? (

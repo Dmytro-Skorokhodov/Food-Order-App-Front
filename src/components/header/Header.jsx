@@ -66,7 +66,7 @@ export default function Header() {
       <header id="main-header">
         <HeaderTitle />
         <div className="main-header__buttons">
-          <button onClick={showOrderModalHandler}>Orders()</button>
+          <button onClick={showOrderModalHandler}>Orders</button>
           <button onClick={showModalHandler}>Cart({total})</button>
         </div>
       </header>

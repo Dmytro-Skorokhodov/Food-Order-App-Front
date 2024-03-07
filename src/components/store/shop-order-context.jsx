@@ -13,6 +13,33 @@ function OrdersReducer(state, action) {
     return {
       orders: newOrders,
     };
+  } else if (action.type === "DELETE_ORDER") {
+    async function deleteOrderHandler() {
+      try {
+        await fetch(
+          `https://food-order-app-backend-git-b1b21c-dmytro-skorokhodovs-projects.vercel.app/orders/${action.order_id}`,
+          {
+            method: "DELETE",
+            headers: {
+              "Content-Type": "application/json",
+              "Access-Control-Allow-Origin": "https://food-order-app-front.vercel.app",
+            },
+          }
+        );
+      } catch (err) {
+        console.log(err.message);
+      }
+    }
+
+    deleteOrderHandler();
+
+    let newOrders = [...state.orders];
+
+    newOrders = newOrders.filter((order) => order.id !== action.order_id);
+
+    return {
+      orders: newOrders,
+    };
   }
 }
 
@@ -23,8 +50,8 @@ export default function OrdersContextProvider({ children }) {
     ordersStateDispatch({ type: "SET_ORDERS", orders: orders });
   }
 
-  function deleteOrderHandler(order) {
-    ordersStateDispatch({ type: "DELETE_ORDER", order: order });
+  function deleteOrderHandler(id) {
+    ordersStateDispatch({ type: "DELETE_ORDER", order_id: id });
   }
 
   const ctxValue = {
@@ -32,9 +59,6 @@ export default function OrdersContextProvider({ children }) {
     deleteOrder: deleteOrderHandler,
     setOrders: setOrdersHandler,
   };
-
-  // console.log(ordersState.orders);
-  console.log(ctxValue.orders);
 
   return <OrdersContext.Provider value={ctxValue}>{children}</OrdersContext.Provider>;
 }

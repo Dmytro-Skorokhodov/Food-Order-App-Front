@@ -22,7 +22,7 @@ export default function Orders({ onCloseModal }) {
           throw new Error("Cannot get orders");
         }
         setOrders(resData);
-        // console.log(resData);
+
         setFetchError({ state: false, message: "" });
       } catch (err) {
         setFetchError({ state: true, message: err.message });
@@ -39,13 +39,13 @@ export default function Orders({ onCloseModal }) {
       <h2>Your Orders</h2>
       <ul>
         {isFetching ? (
-          <p>Waiting for fetch products...</p>
+          <p>Waiting for fetch orders...</p>
         ) : fetchError.state ? (
           <p>{fetchError.message}</p>
         ) : (
           <p>
             {orders.map((order) => (
-              <OrderItem key={order.id} name={order.name} id={order.id} />
+              <OrderItem order={order} key={order.id} />
             ))}
           </p>
         )}

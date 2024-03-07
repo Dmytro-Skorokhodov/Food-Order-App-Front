@@ -34,6 +34,8 @@ export default function Meals() {
     fetchMeals();
   }, []);
 
+  console.log(meals);
+
   return (
     <section id="meals">
       {isFetching ? (
@@ -46,13 +48,12 @@ export default function Meals() {
             key={meal.id}
             name={meal.name}
             price={meal.price}
-            image={img}
+            image={`/${meal.image}`}
             description={meal.description}
             onAddToCart={() => addMealToCart(meal)}
           />
         ))
       )}
-      {}
     </section>
   );
 }

@@ -1,20 +1,20 @@
 import { useContext } from "react";
 import { OrdersContext } from "../store/shop-order-context";
 
-export default function OrderItem({ name, id }) {
+export default function OrderItem({ order }) {
   const { deleteOrder } = useContext(OrdersContext);
 
   function deleteOrderHandler() {
-    deleteOrder(id);
+    deleteOrder(order.id);
   }
 
   return (
     <li className="cart-item">
       <p>
-        {name} - {id}
+        Order #{order.id}, name: {order.name}
       </p>
       <div className="cart-item-actions">
-        <button className="text-button" onClick={deleteOrderHandler}>
+        <button className="button order-button" onClick={deleteOrderHandler}>
           Delete
         </button>
       </div>

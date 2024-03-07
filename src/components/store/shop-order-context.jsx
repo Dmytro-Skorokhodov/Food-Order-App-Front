@@ -20,7 +20,7 @@ export default function OrdersContextProvider({ children }) {
   const [ordersState, ordersStateDispatch] = useReducer(OrdersReducer, { orders: [] });
 
   function setOrdersHandler(orders) {
-    ordersStateDispatch({ type: "SET_ORDERS", orders });
+    ordersStateDispatch({ type: "SET_ORDERS", orders: orders });
   }
 
   function deleteOrderHandler(order) {
@@ -33,5 +33,8 @@ export default function OrdersContextProvider({ children }) {
     setOrders: setOrdersHandler,
   };
 
-  return <OrdersContext.Provider ctx={ctxValue}>{children}</OrdersContext.Provider>;
+  // console.log(ordersState.orders);
+  console.log(ctxValue.orders);
+
+  return <OrdersContext.Provider value={ctxValue}>{children}</OrdersContext.Provider>;
 }

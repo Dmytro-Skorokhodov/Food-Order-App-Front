@@ -1,5 +1,6 @@
 import { useEffect, useState, useContext } from "react";
 import { OrdersContext } from "../store/shop-order-context";
+import OrderItem from "./OrderItem";
 
 export default function Orders({ onCloseModal }) {
   const { orders, setOrders } = useContext(OrdersContext);
@@ -21,6 +22,7 @@ export default function Orders({ onCloseModal }) {
           throw new Error("Cannot get orders");
         }
         setOrders(resData);
+        // console.log(resData);
         setFetchError({ state: false, message: "" });
       } catch (err) {
         setFetchError({ state: true, message: err.message });
@@ -42,7 +44,11 @@ export default function Orders({ onCloseModal }) {
         ) : fetchError.state ? (
           <p>{fetchError.message}</p>
         ) : (
-          <p>{orders}</p>
+          <p>
+            {orders.map((order) => (
+              <OrderItem key={order.id} name={order.name} id={order.id} />
+            ))}
+          </p>
         )}
       </ul>
       <div className="cart-total">$</div>

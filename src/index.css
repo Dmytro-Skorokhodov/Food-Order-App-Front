@@ -4,6 +4,11 @@
   box-sizing: border-box;
 }
 
+ul {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   margin: 0;
   font-family: "Raleway", sans-serif;
@@ -222,14 +227,47 @@ h1 {
   cursor: pointer;
   background-color: #ffc404;
   border: 1px solid #ffc404;
+  border-radius: 5px;
   color: #1f1a09;
   padding: 0.5rem 1.5rem;
+}
+
+.orders {
+  align-self: flex-start;
+}
+
+.orders__block:not(:last-child) {
+  margin-bottom: 30px;
 }
 
 .order-button {
   min-width: 100px;
   flex: 0 1 150px;
   min-height: 40px;
+}
+
+.order-item {
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #bdbab7;
+  padding: 3px 10px;
+  border-radius: 10px;
+}
+.order-item:not(:last-child) {
+  margin-bottom: 10px;
+}
+.order-item__name {
+}
+.order-item__actions {
+}
+.actions-order-item {
+  display: flex;
+  gap: 7px;
+}
+.actions-order-item__button {
+  background-color: #ffc404;
 }
 
 .button:hover,
@@ -277,4 +315,70 @@ h1 {
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+.order-view {
+}
+.order-view__title {
+}
+.order-view__details {
+}
+.details-order-view {
+}
+
+.details-order-view__block {
+}
+
+.details-order-view__block:not(:last-child) {
+  margin: 0 0 10px 0;
+}
+.block-details-order-view {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  min-height: 30px;
+  background-color: #;
+}
+.details-order-view__label {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.meals-block-details-order-view {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.meals-block-details-order-view__label {
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.meals-block-details-order-view__list {
+  list-style-type: none;
+}
+.details-meal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.details-meal__title {
+}
+.details-meal__amount {
+}
+.amount-details-meal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.amount-details-meal__title {
+}
+.amount-details-meal__value {
+}
+
+.details-order-view__email {
+}
+.order-view__close {
 }

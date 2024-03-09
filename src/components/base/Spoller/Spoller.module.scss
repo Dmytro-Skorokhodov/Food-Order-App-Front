@@ -1,0 +1,25 @@
+.icon-clicked {
+  transform: rotateX(180deg);
+}
+.body-spoller {
+  max-height: 0px;
+  visibility: hidden;
+  transition: max-height 0.3s ease 0s;
+}
+
+.spoller {
+  &__button {
+    display: flex;
+    gap: 10px;
+    padding: 10px 20px;
+
+    & span {
+      transition: all 0.3s ease 0s;
+      &::before {
+        font-size: 23px;
+      }
+    }
+  }
+  &__body {
+  }
+}

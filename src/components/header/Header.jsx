@@ -7,10 +7,12 @@ import HeaderTitle from "./HeaderTitle";
 import { useContext, useRef, useState } from "react";
 import Orders from "../Modal/Orders";
 import OrdersContextProvider from "../store/shop-order-context";
+import OrderView from "../Modal/OrderView";
 
 export default function Header() {
   let modalContent;
   const [modalState, setModalState] = useState("");
+  const currentOrder = useRef();
   const { meals } = useContext(CartContext);
   const total = meals.reduce((acc, meal) => acc + meal.quantity, 0);
 
@@ -24,6 +26,11 @@ export default function Header() {
   function showOrderModalHandler() {
     modal.current.open();
     setModalState("Orders");
+  }
+
+  function showOrderDetailsHandler(order) {
+    setModalState("Order-details");
+    currentOrder.current = order;
   }
 
   function closeModalHandler() {
@@ -48,7 +55,17 @@ export default function Header() {
       <OrderResponse response={response.current} onCloseModal={closeModalHandler} />
     );
   } else if (modalState === "Orders") {
-    modalContent = <Orders onCloseModal={closeModalHandler} />;
+    modalContent = (
+      <Orders
+        onCloseModal={closeModalHandler}
+        onViewOrderDetails={(order) => showOrderDetailsHandler(order)}
+        onBackToOrders={showOrderModalHandler}
+      />
+    );
+  } else if (modalState === "Order-details") {
+    modalContent = (
+      <OrderView order={currentOrder.current} backToOrders={showOrderModalHandler} />
+    );
   } else {
     modalContent = (
       <Cart

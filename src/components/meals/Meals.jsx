@@ -34,8 +34,6 @@ export default function Meals() {
     fetchMeals();
   }, []);
 
-  console.log(meals);
-
   return (
     <section id="meals">
       {isFetching ? (

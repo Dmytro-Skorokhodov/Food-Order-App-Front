@@ -2,7 +2,7 @@ import { useEffect, useState, useContext } from "react";
 import { OrdersContext } from "../store/shop-order-context";
 import OrderItem from "./OrderItem";
 
-export default function Orders({ onCloseModal }) {
+export default function Orders({ onCloseModal, onViewOrderDetails, onBackToOrders }) {
   const { orders, setOrders } = useContext(OrdersContext);
 
   const [isFetching, setIsFetching] = useState(false);
@@ -35,22 +35,26 @@ export default function Orders({ onCloseModal }) {
   }, []);
 
   return (
-    <div className="cart">
+    <div className="orders">
       <h2>Your Orders</h2>
-      <ul>
+      <ul className="orders__block">
         {isFetching ? (
           <p>Waiting for fetch orders...</p>
         ) : fetchError.state ? (
           <p>{fetchError.message}</p>
+        ) : orders.length ? (
+          orders.map((order) => (
+            <OrderItem
+              order={order}
+              key={order.id}
+              onViewOrder={() => onViewOrderDetails(order)}
+            />
+          ))
         ) : (
-          <p>
-            {orders.map((order) => (
-              <OrderItem order={order} key={order.id} />
-            ))}
-          </p>
+          <p>No orders available.</p>
         )}
       </ul>
-      <div className="cart-total">$</div>
+
       <div className="modal-actions">
         <button className="text-button button" onClick={() => onCloseModal()}>
           Close

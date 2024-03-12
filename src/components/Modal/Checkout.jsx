@@ -10,7 +10,7 @@ export default function Checkout({ onCloseModal, onSuccessSubmit }) {
   const streetRef = useRef();
   const postalRef = useRef();
   const cityRef = useRef();
-  const { meals } = useContext(CartContext);
+  const { meals, deleteAllMeals } = useContext(CartContext);
   const [isError, setIsError] = useState({ state: false, message: "" });
   const total = meals.reduce((acc, meal) => acc + meal.price * meal.quantity, 0);
 
@@ -45,6 +45,7 @@ export default function Checkout({ onCloseModal, onSuccessSubmit }) {
     }
 
     onSuccessSubmit(response);
+    deleteAllMeals();
   }
 
   return (

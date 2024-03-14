@@ -269,6 +269,13 @@ h1 {
   background-color: #bdbab7;
   padding: 3px 10px;
   border-radius: 10px;
+
+  @media (min-width: 490px) {
+    gap: 10px;
+  }
+  @media (max-width: 490px) {
+    flex-direction: column;
+  }
 }
 .order-item:not(:last-child) {
   margin-bottom: 10px;
@@ -276,6 +283,9 @@ h1 {
 .order-item__name {
 }
 .order-item__actions {
+}
+
+@media (max-width: 490px) {
 }
 .actions-order-item {
   display: flex;
